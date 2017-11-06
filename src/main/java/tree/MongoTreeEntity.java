@@ -5,14 +5,22 @@ import org.mongodb.morphia.annotations.Id;
 
 @Entity("trees")
 class MongoTreeEntity {
-    @Id
-    private String id;
-    Tree tree;
+    @Id @SuppressWarnings("unused")
+    private final String id;
+    private final Tree tree;
 
-    private MongoTreeEntity() {}
+    @SuppressWarnings("unused")
+    private MongoTreeEntity() {
+        this.id = null;
+        this.tree = null;
+    }
 
     MongoTreeEntity(Tree tree) {
         this.id = tree.id();
         this.tree = tree;
+    }
+
+    public Tree getTree() {
+        return tree;
     }
 }

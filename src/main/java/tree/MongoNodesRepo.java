@@ -23,14 +23,14 @@ public class MongoNodesRepo implements NodesRepo {
     @Override
     public Optional<Tree> tree(String nodeId) {
         return Optional.ofNullable(store.get(MongoTreeEntity.class, nodeId))
-                .map(e -> e.tree);
+                .map(MongoTreeEntity::getTree);
     }
 
     @Override
     public List<Tree> trees() {
         return store.find(MongoTreeEntity.class)
                 .asList().stream()
-                .map(e -> e.tree)
+                .map(MongoTreeEntity::getTree)
                 .collect(Collectors.toList());
     }
 }
