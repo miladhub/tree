@@ -17,7 +17,7 @@ public class MongoTreeEvaluatorTest extends AbstractTreeEvaluatorTest {
 
     @Before
     public void mongo() throws Exception {
-        Query<MongoNodeEntity> query = store.find(MongoNodeEntity.class);
+        Query<MongoTreeEntity> query = store.find(MongoTreeEntity.class);
         store.delete(query);
     }
 }

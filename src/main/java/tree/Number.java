@@ -1,25 +1,19 @@
 package tree;
 
-class Number implements Node {
-    private final String id;
-    private final int value;
+class Number implements ValueNode {
+    private final Integer value;
 
+    @SuppressWarnings("unused")
     private Number() {
-        this(null, 0);
+        this(null);
     }
 
-    Number(String id, int value) {
-        this.id = id;
+    Number(Integer value) {
         this.value = value;
     }
 
     @Override
-    public String id() {
-        return id;
-    }
-
-    @Override
-    public Integer eval() {
+    public Integer getValue() {
         return value;
     }
 }

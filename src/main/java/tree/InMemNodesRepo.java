@@ -5,15 +5,20 @@ import java.util.List;
 import java.util.Optional;
 
 class InMemNodesRepo implements NodesRepo {
-    private List<Node> nodes = new ArrayList<>();
+    private List<Tree> trees = new ArrayList<>();
 
     @Override
-    public void add(Node node) {
-        nodes.add(node);
+    public void add(Tree node) {
+        trees.add(node);
     }
 
     @Override
-    public Optional<Node> node(String nodeId) {
-        return nodes.stream().filter(n -> n.id().equals(nodeId)).findFirst();
+    public Optional<Tree> tree(String nodeId) {
+        return trees.stream().filter(n -> n.id().equals(nodeId)).findFirst();
+    }
+
+    @Override
+    public List<Tree> trees() {
+        return trees;
     }
 }
