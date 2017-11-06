@@ -3,7 +3,6 @@ package tree;
 import com.mongodb.MongoClient;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
-import org.mongodb.morphia.query.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,9 +12,7 @@ public class MongoNodesRepo implements NodesRepo {
     private final Datastore store;
 
     MongoNodesRepo() {
-        Morphia morphia = new Morphia();
-        morphia.mapPackage("tree");
-        store = morphia.createDatastore(new MongoClient(), "tree");
+        store = new Morphia().createDatastore(new MongoClient(), "tree");
     }
 
     @Override
